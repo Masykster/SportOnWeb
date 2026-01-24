@@ -8,7 +8,7 @@ import { useRouter } from "next/navigation";
 
 const Checkout = () => {
   const { push } = useRouter();
-  const { setCustomerInfo } = useCartStore();
+  const { customerInfo, setCustomerInfo } = useCartStore();
   const [formData, setFormData] = useState<CustomerInfo>({
     customerName: "",
     customerContact: null,

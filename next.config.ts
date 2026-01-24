@@ -9,11 +9,7 @@ const nextConfig: NextConfig = {
         pathname: "/uploads/**",
       },
     ],
-    // Bypass private IP restriction for external images
-    unoptimized: true,
   },
-  // Allow dev origins for hot reload
-  allowedDevOrigins: ["http://localhost:3000", "http://localhost:3001"],
 };
 
 export default nextConfig;

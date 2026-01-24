@@ -2,6 +2,24 @@ import { FiCreditCard } from "react-icons/fi";
 import CardWithHeader from "../ui/card-with-header";
 import { getAllBanks } from "@/app/services/bank.service";
 
+const paymentList = [
+  {
+    bank_name: "BCA",
+    account_number: 1231231231231,
+    account_holder: "PT SportsOn Digital",
+  },
+  {
+    bank_name: "Mandiri",
+    account_number: 89458434,
+    account_holder: "PT SportsOn Digital",
+  },
+  {
+    bank_name: "BRI",
+    account_number: 123891283912,
+    account_holder: "PT SportsOn Digital",
+  },
+];
+
 const PaymentOptions = async () => {
   const banks = await getAllBanks();
 

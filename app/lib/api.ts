@@ -24,5 +24,7 @@ export async function fetchAPI<T>(
 
 export function getImageUrl(path: string) {
   if (path.startsWith("http")) return path; // artinya url nya sudah valid
-  return `${process.env.NEXT_PUBLIC_API_ROOT}/${path}`;
+  // Ensure the path starts with a slash to avoid malformed URLs
+  const normalizedPath = path.startsWith("/") ? path : `/${path}`;
+  return `${process.env.NEXT_PUBLIC_API_ROOT}${normalizedPath}`;
 }

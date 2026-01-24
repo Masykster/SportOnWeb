@@ -15,7 +15,7 @@ type TCartItems = {
 
 const CartItems = ({ handlePayment }: TCartItems) => {
   const { items, removeItem } = useCartStore();
-  useRouter();
+  const { push } = useRouter();
 
   const totalPrice = items.reduce(
     (total, item) => total + item.price * item.qty,
