@@ -1,6 +1,6 @@
 export async function fetchAPI<T>(
   endpoint: string,
-  options?: RequestInit
+  options?: RequestInit,
 ): Promise<T> {
   const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}${endpoint}`, {
     ...options,
@@ -24,7 +24,12 @@ export async function fetchAPI<T>(
 
 export function getImageUrl(path: string) {
   if (path.startsWith("http")) return path; // artinya url nya sudah valid
-  // Ensure the path starts with a slash to avoid malformed URLs
-  const normalizedPath = path.startsWith("/") ? path : `/${path}`;
-  return `${process.env.NEXT_PUBLIC_API_ROOT}${normalizedPath}`;
+  return `${process.env.NEXT_PUBLIC_API_ROOT}/${path}`;
+}
+
+export function getAuthHeaders() {
+  const token = localStorage.getItem("token");
+  return {
+    Authorization: `Bearer ${token}`,
+  };
 }
